@@ -1,0 +1,21 @@
+<mat-toolbar *ngIf="!user" id="mainToolbar" color="primary">
+Bolsa UFG
+<span class="toolbar-spacer"></span>
+
+<button  mat-mini-fab [matMenuTriggerFor]="avatarDropDown" color="primary" class="toolbar-avatar" [ngStyle]="{'background-image': 'url(' + user?.photoURL + ')'}"></button>
+</mat-toolbar>
+
+<mat-menu #avatarDropDown="matMenu">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>{{ user?.displayName }}</mat-card-title>
+      <mat-card-subtitle>{{ user?.email }}</mat-card-subtitle>
+    </mat-card-header>
+  </mat-card>
+
+
+<button mat-menu-item (click)="logout()">
+  <mat-icon>exit_to_app</mat-icon>
+  <span>Sign Out</span>
+</button>
+</mat-menu>
